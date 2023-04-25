@@ -12,7 +12,7 @@ class PetsController < ApplicationController
   end
 
   def create
-    @pet = Pet.new(pet_params)
+    @pet = Pet.new(pet_params, user_id: current_user.id)
 
     if @pet.save
       redirect_to @pet
